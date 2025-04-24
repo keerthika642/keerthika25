@@ -1,120 +1,154 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
     color: #333;
+}
+
+.container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align top */
-    min-height: 100vh;
-    margin: 0;
-    padding-top: 40px; /* Add some space at the top */
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.task-container {
-    background-color: #ffffff;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    background-color: #fdfdfd;
 }
 
-h1 {
-    color: #2c3e50;
-    margin-bottom: 25px;
-    font-size: 2em;
+.sidebar h2, .sidebar h3 {
+    margin-top: 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-.input-area {
-    display: flex;
-    gap: 10px; /* Space between input and button */
+.filter-group {
     margin-bottom: 25px;
 }
 
-#newTaskInput {
-    flex-grow: 1; /* Take available space */
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-#newTaskInput:focus {
-    border-color: #3498db;
-}
-
-#addTaskBtn {
-    padding: 12px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.filter-group label {
+    display: block;
+    margin-left: 5px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.1s ease;
 }
-
-#addTaskBtn:hover {
-    background-color: #2980b9;
+.filter-group input[type="checkbox"] {
+   margin-right: 5px;
+   cursor: pointer;
 }
-#addTaskBtn:active {
-    transform: scale(0.98);
-}
-
-
-#stellarTaskList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-}
-
-#stellarTaskList li {
-    background-color: #f9f9f9;
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    border: 1px solid #eee;
-    border-radius: 5px;
+.filter-group div { /* Style for checkbox containers */
+    margin-bottom: 8px;
     display: flex;
-    justify-content: space-between; /* Pushes content and button apart */
     align-items: center;
-    word-break: break-word; /* Prevent long words from overflowing */
-    transition: background-color 0.2s ease;
-}
-
-#stellarTaskList li:hover {
-    background-color: #f1f1f1;
 }
 
 
-.task-text {
-    flex-grow: 1; /* Allows text to take space */
-    margin-right: 10px; /* Space between text and delete button */
+#price-filter {
+    width: 100%;
+    cursor: pointer;
 }
 
-.delete-btn {
-    background-color: #e74c3c;
+#price-value {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+#clear-filters-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 5px 10px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-    flex-shrink: 0; /* Prevent button from shrinking */
-}
-
-.delete-btn:hover {
-    background-color: #c0392b;
-}
-
-.status-message {
     margin-top: 20px;
-    font-style: italic;
-    color: #7f8c8d;
-    min-height: 1.2em; /* Reserve space even when empty */
+    transition: background-color 0.2s ease;
+}
+#clear-filters-btn:hover {
+    background-color: #c82333;
+}
+
+
+/* Product Area Styles */
+.product-area {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 20px;
+}
+
+.sort-options {
+    margin-bottom: 20px;
+    text-align: right;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.sort-options label {
+    margin-right: 10px;
+}
+
+.sort-options select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Product Grid Styles */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 150px; /* Fixed height */
+    object-fit: contain; /* Scale while preserving aspect ratio */
+    margin-bottom: 10px;
+}
+
+.product-card h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1.1em;
+    min-height: 40px; /* Prevent layout shift with different name lengths */
+}
+
+.product-card .category {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #28a745; /* Green color for price */
+    margin-bottom: 5px;
+}
+
+.product-card .rating {
+    font-size: 0.9em;
+    color: #ffc107; /* Yellow/Orange for rating */
 }

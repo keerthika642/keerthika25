@@ -3,24 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellar Task Keeper</title>
+    <title>Product Listing Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="task-container">
-        <h1>Stellar Task Keeper ✨</h1>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Filters</h2>
 
-        <div class="input-area">
-            <input type="text" id="newTaskInput" placeholder="Enter a new stellar task...">
-            <button id="addTaskBtn" aria-label="Add Task">Add Task</button>
-        </div>
+            <div class="filter-group">
+                <h3>Category</h3>
+                <div id="category-filters">
+                    <!-- Category checkboxes will be added here by JS -->
+                    <!-- Example:
+                    <div>
+                        <input type="checkbox" id="cat-electronics" value="Electronics" class="category-filter">
+                        <label for="cat-electronics">Electronics</label>
+                    </div>
+                     -->
+                </div>
+            </div>
 
-        <ul id="stellarTaskList" aria-live="polite">
-            <!-- Tasks will be dynamically inserted here -->
-        </ul>
+            <div class="filter-group">
+                <h3>Max Price</h3>
+                <input type="range" id="price-filter" min="0" max="1000" value="1000" step="10">
+                <span id="price-value">$1000</span>
+            </div>
 
-        <p id="statusMessage" class="status-message"></p>
+            <button id="clear-filters-btn">Clear Filters</button>
+
+        </aside>
+
+        <main class="product-area">
+            <div class="sort-options">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select">
+                    <option value="default">Default</option>
+                    <option value="rating-desc">Rating (High to Low)</option>
+                    <option value="price-asc">Price (Low to High)</option>
+                    <option value="price-desc">Price (High to Low)</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                </select>
+            </div>
+
+            <div id="product-list" class="product-grid">
+                <!-- Products will be loaded here by JS -->
+            </div>
+        </main>
     </div>
 
     <script src="script.js"></script>
